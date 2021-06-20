@@ -8,3 +8,4 @@
 *.user
 */.vs
 /packages
+/.vscode

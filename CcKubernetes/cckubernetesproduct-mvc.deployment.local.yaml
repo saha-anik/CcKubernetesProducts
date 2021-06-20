@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cckubernetesproduct-mvc
+spec:
+  selector:
+    matchLabels:
+      app: mvc
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: mvc
+    spec:
+      containers:
+      - name: mvc
+        image: aniksaha/cckubernetesproduct-mvc:v1.0
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: cckubernetesproduct-mvc-service
+spec:
+  selector:
+    app: mvc
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30101
+  type: NodePort
