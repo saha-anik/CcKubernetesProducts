@@ -17,6 +17,13 @@ spec:
         image: aniksaha/cckubernetesproduct-mvc:v2.0
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: "1"
+            memory: "200Mi"
+          requests:
+            cpu: "0.1"
+            memory: "100Mi"
         env:
           - name: ConnectionStrings__ProductsContext
             valueFrom:
