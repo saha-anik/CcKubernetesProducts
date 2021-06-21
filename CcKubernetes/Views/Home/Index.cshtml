@@ -1,8 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@model HomeViewModel
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Kubernetes Implementation For Cloud Computing Project</p>
+    <p>Build Version: @Model.Version</p>
 </div>

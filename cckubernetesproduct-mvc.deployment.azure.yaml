@@ -30,6 +30,9 @@ spec:
               secretKeyRef:
                 name: cckubernetesproduct-secret
                 key: db-connection-string-secret
+              configMapKeyRef:
+                name: cckubernetesproduct-configmap
+                key: build-version
 ---
 kind: Service
 apiVersion: v1
