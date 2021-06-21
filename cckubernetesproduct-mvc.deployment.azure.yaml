@@ -30,6 +30,8 @@ spec:
               secretKeyRef:
                 name: cckubernetesproduct-secret
                 key: db-connection-string-secret
+          - name: ConnectionStrings__BuildVersion
+            valueFrom:
               configMapKeyRef:
                 name: cckubernetesproduct-configmap
                 key: build-version
