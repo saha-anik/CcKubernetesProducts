@@ -19,7 +19,10 @@ spec:
         - containerPort: 80
         env:
           - name: ConnectionStrings__ProductsContext
-            value: "Server=cckubernetesproduct-mssql-service;Database=CCKubernetesProducts;User=SA;Password=12345678Aa;Integrated Security=false;MultipleActiveResultSets=true;"
+            valueFrom:
+              secretKeyRef:
+                name: cckubernetesproduct-secret
+                key: db-connection-string-secret
 ---
 kind: Service
 apiVersion: v1
