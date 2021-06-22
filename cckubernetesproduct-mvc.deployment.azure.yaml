@@ -35,6 +35,11 @@ spec:
               configMapKeyRef:
                 name: cckubernetesproduct-configmap
                 key: build-version
+          - name: ConnectionStrings__Seq
+            valueFrom:
+              configMapKeyRef:
+                name: cckubernetesproduct-configmap
+                key: seq
 ---
 kind: Service
 apiVersion: v1
