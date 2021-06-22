@@ -33,7 +33,7 @@ namespace CcKubernetes.Controllers
             try
             {
                 using var client = new HttpClient();
-                HttpResponseMessage response = client.GetAsync($"http://{_configuration.GetConnectionString("Seq")}").Result;
+                HttpResponseMessage response = client.GetAsync($"http://{_configuration.GetConnectionString("Seq")}:5341").Result;
 
                 if (response.RequestMessage?.RequestUri != null)
                 {
@@ -42,7 +42,7 @@ namespace CcKubernetes.Controllers
             }
             catch (Exception e)
             {
-                homeviewModel.Version = e.Message + "|" + $"http://{_configuration.GetConnectionString("Seq")}";
+                homeviewModel.Version = e.Message + "|" + $"http://{_configuration.GetConnectionString("Seq")}:5341";
             }
             
             return View(homeviewModel);

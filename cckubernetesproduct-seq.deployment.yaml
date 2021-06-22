@@ -53,4 +53,3 @@ spec:
     - protocol: TCP
       port: 5341
       targetPort: 5341
-  type: LoadBalancer
