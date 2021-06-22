@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mvc
-        image: aniksaha/cckubernetesproduct-mvc:v2.0
+        image: aniksaha/cckubernetesproduct-mvc:v2.11
         ports:
         - containerPort: 80
         resources:
@@ -30,6 +30,11 @@ spec:
               secretKeyRef:
                 name: cckubernetesproduct-secret
                 key: db-connection-string-secret
+          - name: ConnectionStrings__Seq
+            valueFrom:
+              configMapKeyRef:
+                name: cckubernetesproduct-configmap
+                key: seq
 ---
 kind: Service
 apiVersion: v1
