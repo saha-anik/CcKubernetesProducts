@@ -30,21 +30,6 @@ namespace CcKubernetes.Controllers
                 Version = _configuration.GetConnectionString("BuildVersion")
             };
             
-            try
-            {
-                using var client = new HttpClient();
-                HttpResponseMessage response = client.GetAsync($"http://{_configuration.GetConnectionString("Seq")}:5341").Result;
-
-                if (response.RequestMessage?.RequestUri != null)
-                {
-                    homeviewModel.Version = response.RequestMessage.RequestUri.ToString();
-                }
-            }
-            catch (Exception e)
-            {
-                homeviewModel.Version = e.Message + "|" + $"http://{_configuration.GetConnectionString("Seq")}:5341";
-            }
-            
             return View(homeviewModel);
         }
 

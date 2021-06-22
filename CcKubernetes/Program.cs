@@ -53,7 +53,7 @@ namespace CcKubernetes
                         .ReadFrom.Configuration(ctx.Configuration) // minimum levels defined per project in json files 
                         .Enrich.FromLogContext()
                         .WriteTo.Console()
-                        .WriteTo.Seq($"http://{ctx.Configuration.GetConnectionString("Seq")}");
+                        .WriteTo.Seq($"http://{ctx.Configuration.GetConnectionString("Seq")}:{ctx.Configuration.GetConnectionString("SeqPort")}");
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
