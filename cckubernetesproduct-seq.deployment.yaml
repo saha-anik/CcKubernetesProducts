@@ -53,5 +53,4 @@ spec:
     - protocol: TCP
       port: 5341
       targetPort: 5341
-      nodePort: 30300
-  type: NodePort
+  type: LoadBalancer

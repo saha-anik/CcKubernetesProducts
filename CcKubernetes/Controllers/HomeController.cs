@@ -26,7 +26,7 @@ namespace CcKubernetes.Controllers
         {
             var homeviewModel = new HomeViewModel()
             {
-                Version = _configuration.GetConnectionString("Seq")
+                Version = _configuration.GetConnectionString("ProductsContext")
             };
             return View(homeviewModel);
         }
