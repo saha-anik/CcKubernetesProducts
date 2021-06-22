@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
@@ -28,6 +29,22 @@ namespace CcKubernetes.Controllers
             {
                 Version = _configuration.GetConnectionString("BuildVersion")
             };
+            
+            try
+            {
+                using var client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync($"http://{_configuration.GetConnectionString("Seq")}").Result;
+
+                if (response.RequestMessage?.RequestUri != null)
+                {
+                    homeviewModel.Version = response.RequestMessage.RequestUri.ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                homeviewModel.Version = e.Message + "|" + $"http://{_configuration.GetConnectionString("Seq")}";
+            }
+            
             return View(homeviewModel);
         }
 
