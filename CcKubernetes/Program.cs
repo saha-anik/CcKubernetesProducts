@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CcKubernetes.Data;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace CcKubernetes
 {
@@ -46,6 +47,14 @@ namespace CcKubernetes
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseSerilog((ctx, provider, loggerConfig) =>
+                {
+                    loggerConfig
+                        .ReadFrom.Configuration(ctx.Configuration) // minimum levels defined per project in json files 
+                        .Enrich.FromLogContext()
+                        .WriteTo.Console()
+                        .WriteTo.Seq(ctx.Configuration.GetConnectionString("Seq"));
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
