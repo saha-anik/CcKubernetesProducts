@@ -18,6 +18,13 @@ spec:
         ports:
         - containerPort: 5341
         - containerPort: 80
+        resources:
+          limits:
+            cpu: "1"
+            memory: "200Mi"
+          requests:
+            cpu: "0.1"
+            memory: "100Mi"
         env:
         - name: ACCEPT_EULA
           value: "Y"        
@@ -31,7 +38,7 @@ spec:
     app: seq-app 
   ports:
     - protocol: TCP
-      port: 81
+      port: 80
       targetPort: 80
   type: LoadBalancer
 ---
