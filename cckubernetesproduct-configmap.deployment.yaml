@@ -4,4 +4,4 @@ metadata:
   name: cckubernetesproduct-configmap
 data:
   build-version: v2.#{Build.BuildId}#
-  seq-log-port: 5341
+  seq-log-port: "5341"
