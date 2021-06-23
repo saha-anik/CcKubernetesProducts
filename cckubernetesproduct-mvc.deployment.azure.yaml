@@ -19,10 +19,10 @@ spec:
         - containerPort: 80
         resources:
           limits:
-            cpu: "1"
+            cpu: "0.4"
             memory: "200Mi"
           requests:
-            cpu: "0.1"
+            cpu: "0.2"
             memory: "100Mi"
         env:
           - name: ConnectionStrings__ProductsContext
@@ -55,3 +55,16 @@ spec:
     port: 80
     targetPort: 80
   type: LoadBalancer
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: cckubernetesproduct-mvc-hpa
+spec:
+  maxReplicas: 5 # define max replica count
+  minReplicas: 2  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: cckubernetesproduct-mvc
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
