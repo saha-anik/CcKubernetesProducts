@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mvc
-        image: aniksaha/cckubernetesproduct-mvc:v2.#{Build.BuildId}#
+        image: aniksaha/cckubernetesproduct-mvc:v4.#{Build.BuildId}#
         ports:
         - containerPort: 80
         resources:

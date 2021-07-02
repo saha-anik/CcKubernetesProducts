@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: cckubernetesproduct-mssql-persistent-volume-claim
+  name: cckubernetes-mssql-persistent-volume-claim
 spec:
   accessModes:
     - ReadWriteMany

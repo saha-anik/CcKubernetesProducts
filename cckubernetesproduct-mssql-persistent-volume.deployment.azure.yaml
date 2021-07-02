@@ -1,7 +1,7 @@
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: cckubernetesproduct-mssql-persistent-volume
+  name: cckubernetes-mssql-persistent-volume
 provisioner: kubernetes.io/azure-disk
 parameters:
   storageaccounttype: Standard_LRS
@@ -10,9 +10,9 @@ parameters:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: cckubernetesproduct-mssql-persistent-volume-claim
+  name: cckubernetes-mssql-persistent-volume-claim
   annotations: 
-    volume.beta.kubernetes.io/storage-class: cckubernetesproduct-mssql-persistent-volume
+    volume.beta.kubernetes.io/storage-class: cckubernetes-mssql-persistent-volume
 spec:
   storageClassName: default
   accessModes:

@@ -1,10 +1,10 @@
 import http from 'k6/http';
 import { sleep } from 'k6';
 export let options = {
-  vus: 200,
-  duration: '60s',
+  vus: 500,
+  duration: '100s',
 };
 export default function () {
-  http.get('http://20.79.117.111/Products');
+  http.get('http://20.52.212.203/');
   sleep(1);
 }

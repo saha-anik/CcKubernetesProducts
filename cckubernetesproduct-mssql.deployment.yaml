@@ -15,13 +15,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: mssql
-        image: microsoft/mssql-server-linux
-        resources:
-          limits:
-            cpu: "1"
-            memory: "1Gi"
-          requests:
-            cpu: "0.1"
+        image: mcr.microsoft.com/mssql/server
         ports:
         - containerPort: 1433
         env:
@@ -33,12 +27,12 @@ spec:
               name: cckubernetesproduct-secret
               key: db-password-secret
         volumeMounts:
-        - name: cckubernetesproduct-mssql-persistent-storage
-          mountPath: /var/opt/mssql
+        - name: cckubernetes-mssql-persistent-storage
+          mountPath: /mysql
       volumes:
-      - name: cckubernetesproduct-mssql-persistent-storage
+      - name: cckubernetes-mssql-persistent-storage
         persistentVolumeClaim:
-          claimName: cckubernetesproduct-mssql-persistent-volume-claim
+          claimName: cckubernetes-mssql-persistent-volume-claim
 ---
 apiVersion: v1
 kind: Service
