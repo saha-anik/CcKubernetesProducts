@@ -1,8 +1,10 @@
 # CcKubernetesProducts
 
 Kubernetes Implementation For Cloud Computing Project
+Deployment of Mvc project with Seq log and Mssql 
+Feature: Secret, configmap, persistant storage, horizontal auto scale
+ClusterIp, LoadBalancer 
 
-Secret and persistant volumne
 
 install k6 for load testing 
 https://k6.io/docs/getting-started/installation/
