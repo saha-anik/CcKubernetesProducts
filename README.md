@@ -11,3 +11,5 @@ https://k6.io/docs/getting-started/installation/
 
 running code:
 run script k6 run script.js
+
+for more details: https://github.com/saha-anik/CcKubernetesProducts/blob/main/K8s_deployment.pdf
