@@ -1,15 +1,17 @@
 # CcKubernetesProducts
+This project is to explain containerized application deployment into the Kubernetes cluster with Azure DevOps, Dockerhub, and a Github repository. It includes three servers that leverage container-based technologies inside a microservice architecture, making resource utilization easier and more efficient. 
 
-Kubernetes Implementation For Cloud Computing Project
-Deployment of Mvc project with Seq log and Mssql 
-Feature: Secret, configmap, persistant storage, horizontal auto scale
-ClusterIp, LoadBalancer 
+#### Tools and Methodologies
++ Deployment tool: Kubernetes, Azure DevOps
++ Programming Language: C#, HTML, CSS, JavaScript
++ Container repository: Docker Hub
++ Testing tool: k6
 
 
-install k6 for load testing 
-https://k6.io/docs/getting-started/installation/
+**Kubernetes Fundamentals** that were used to create this project: Pod, Service, ConfigMap, Secret, PersistantVolume, HorizontalPodAutoscaler
 
-running code:
-run script k6 run script.js
+**Azure DevOps** is used to set up a CI/CD pipeline to deploy the web app to a Kubernetes cluster. The demonstration of CI/CD pipeline of is given in our report.
 
-for more details: https://github.com/saha-anik/CcKubernetesProducts/blob/main/K8s_deployment.pdf
+For **Load Testing** we used K6 framework. The code of running loadtest is in loadtesting.js .
+
+For more details: https://github.com/saha-anik/CcKubernetesProducts/blob/main/K8s_deployment.pdf
